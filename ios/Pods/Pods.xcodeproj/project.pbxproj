@@ -5,7 +5,6 @@
 	};
 	objectVersion = 46;
 	objects = {
-
 /* Begin PBXBuildFile section */
 		03A6CA5A77CBECEA05209B319DE3B51C /* ssl_pin_verifier.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A644B8945FDA0FC77304885DA024900 /* ssl_pin_verifier.m */; };
 		1995E435BB564B7595F3531F472E5A1B /* TSKPinningValidator.h in Headers */ = {isa = PBXBuildFile; fileRef = BF7059137502E5E40C793A0CABA42740 /* TSKPinningValidator.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -52,6 +51,7 @@
 		FB8FBEB7A0AAFC9B363F3869518B000C /* trie_search.h in Headers */ = {isa = PBXBuildFile; fileRef = 69C35E58E88C134E8C7AD0C69D1083BD /* trie_search.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		FC8C8B6EC5F7C1B6FDE4C18F2E06DCF6 /* TSKNSURLConnectionDelegateProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 061827102896C66C70AD72E1C5981567 /* TSKNSURLConnectionDelegateProxy.m */; };
 		FFB113A8C9EDC98D60275B0939ED3AC2 /* reporting_utils.h in Headers */ = {isa = PBXBuildFile; fileRef = 6B390546ECA7EE98562AF503B4179639 /* reporting_utils.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		F5D96A2822984BF599F4E25D /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D8F9303DDED4C5D8A04B3A4 /* libz.tbd */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -120,6 +120,7 @@
 		D04D3E62BAF0EEB0AD734CFE7870FA1B /* public_key_utils.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = public_key_utils.m; path = TrustKit/Pinning/public_key_utils.m; sourceTree = "<group>"; };
 		D21DA7CDD0FCC3C265CB90F2529E4675 /* TrustKit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TrustKit.h; path = TrustKit/TrustKit.h; sourceTree = "<group>"; };
 		D623100DF2D6B2B31C258F160BADF02F /* trie_search.c */ = {isa = PBXFileReference; includeInIndex = 1; name = trie_search.c; path = TrustKit/Dependencies/domain_registry/private/trie_search.c; sourceTree = "<group>"; };
+		7D8F9303DDED4C5D8A04B3A4 /* libz.tbd */ = {isa = PBXFileReference; name = "libz.tbd"; path = "usr/lib/libz.tbd"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = sourcecode.text-based-dylib-definition; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +138,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2FF1748FBC50828DB4B7D76DD06260BD /* Foundation.framework in Frameworks */,
+				F5D96A2822984BF599F4E25D /* libz.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -219,6 +221,7 @@
 			isa = PBXGroup;
 			children = (
 				4F990579C2E52276FD3C28227B49D60B /* iOS */,
+				7D8F9303DDED4C5D8A04B3A4 /* libz.tbd */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -269,6 +272,14 @@
 				1449BBFEA6F45FBFF6EEAE66946C8AE0 /* Pods-ReactNativeTrustKitSentry */,
 			);
 			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		08957F49BDF14CFF89716570 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			path = Application;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -329,6 +340,7 @@
 			buildPhases = (
 				0EF898C4A1E926E21EE0288993ACADF7 /* Sources */,
 				70E35C11967DCEE1B03C6C643406F970 /* Frameworks */,
+				5F9E12B44C9B48C99BEBBCE9 /* Upload Debug Symbols to Sentry */,
 			);
 			buildRules = (
 			);
@@ -346,8 +358,8 @@
 		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 0700;
+				LastSwiftUpdateCheck = 830;
+				LastUpgradeCheck = 700;
 			};
 			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -629,6 +641,23 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5F9E12B44C9B48C99BEBBCE9 /* Upload Debug Symbols to Sentry */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			name = "Upload Debug Symbols to Sentry";
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			shellPath = /bin/sh;
+			shellScript = "export SENTRY_PROPERTIES=sentry.properties\n../node_modules/sentry-cli-binary/bin/sentry-cli upload-dsym";
+		};
+/* End PBXShellScriptBuildPhase section */
 	};
 	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 }

@@ -12,6 +12,11 @@ import {
   View
 } from 'react-native';
 
+import { Sentry } from 'react-native-sentry';
+
+Sentry.config("https://12345678901234567890123456789012:12345678901234567890123456789012@sentry.io/test").install();
+
+
 export default class ReactNativeTrustKitSentry extends Component {
   render() {
     return (
