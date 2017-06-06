@@ -2,6 +2,30 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+  <key>TSKConfiguration</key>
+  <dict>
+    <key>TSKSwizzleNetworkDelegates</key>
+    <true/>
+    <key>TSKPinnedDomains</key>
+    <dict>
+      <key>www.datatheorem.com</key>
+      <dict>
+        <key>TSKPublicKeyHashes</key>
+        <array>
+          <string>HXXQgxueCIU5TTLHob/bPbwcKOKw6DkfsTWYHbxbqTY=</string>
+          <string>0SDf3cRToyZJaMsoS17oF72VMavLxj/N7WBNasNuiR8=</string>
+        </array>
+        <key>TSKPublicKeyAlgorithms</key>
+        <array>
+          <string>TSKAlgorithmRsa2048</string>
+        </array>
+        <key>TSKIncludeSubdomains</key>
+        <true/>
+        <key>TSKEnforcePinning</key>
+        <true/>
+      </dict>
+    </dict>
+  </dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
